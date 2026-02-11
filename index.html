@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ADJI AHOLIA WILFRIED CHEREL">
+    <link rel="stylesheet" href="style.css">
+    <title>Chronomètre & Minuteur</title>
+</head>
+<body>
+    <div class="conteneur">
+        <!-- Onglets pour choisir entre chronomètre et minuteur -->
+        <div class="onglets">
+            <button class="onglet actif" data-mode="chronometre">
+                ⏱ Chronomètre
+            </button>
+            <button class="onglet" data-mode="minuteur">
+                ⏲ Minuteur
+            </button>
+        </div>
+
+        <!-- Section Chronomètre -->
+        <div class="section-chronometre active">
+            <div class="affichage-temps" id="affichage-chrono">
+                00:00:00
+            </div>
+            <div class="boutons">
+                <button id="start-chrono" class="btn btn-success">▶ Start</button>
+                <button id="stop-chrono" class="btn btn-warning">⏸ Stop</button>
+                <button id="reset-chrono" class="btn btn-danger">↻ Reset</button>
+            </div>
+            <div class="tours" id="liste-tours">
+                <!-- Les tours du chronomètre apparaîtront ici -->
+            </div>
+        </div>
+
+        <!-- Section Minuteur -->
+        <div class="section-minuteur">
+            <!-- Configuration du temps -->
+            <div class="config-temps">
+                <div class="input-temps">
+                    <label>Heures</label>
+                    <input type="number" id="heures" min="0" max="23" value="0">
+                </div>
+                <div class="input-temps">
+                    <label>Minutes</label>
+                    <input type="number" id="minutes" min="0" max="59" value="1">
+                </div>
+                <div class="input-temps">
+                    <label>Secondes</label>
+                    <input type="number" id="secondes" min="0" max="59" value="0">
+                </div>
+            </div>
+
+            <div class="affichage-temps" id="affichage-minuteur">
+                00:01:00
+            </div>
+
+            <!-- Barre de progression -->
+            <div class="barre-progression">
+                <div class="progression" id="progression"></div>
+            </div>
+
+            <div class="boutons">
+                <button id="start-minuteur" class="btn btn-success">▶ Start</button>
+                <button id="stop-minuteur" class="btn btn-warning">⏸ Stop</button>
+                <button id="reset-minuteur" class="btn btn-danger">↻ Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Son de fin (optionnel) -->
+    <audio id="son-fin" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:  #64a0ee ;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.conteneur {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* ===== ONGLETS ===== */
+.onglets {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: #f5f5f5;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.onglet {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #666;
+}
+
+.onglet:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.onglet.actif {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* ===== SECTIONS ===== */
+.section-chronometre,
+.section-minuteur {
+    display: none;
+}
+
+.section-chronometre.active,
+.section-minuteur.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== AFFICHAGE DU TEMPS ===== */
+.affichage-temps {
+    font-size: 72px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    margin: 40px 0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 5px;
+}
+
+/* ===== CONFIGURATION DU TEMPS (MINUTEUR) ===== */
+.config-temps {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.input-temps {
+    text-align: center;
+}
+
+.input-temps label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-temps input {
+    width: 80px;
+    padding: 12px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.input-temps input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ===== BARRE DE PROGRESSION ===== */
+.barre-progression {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.progression {
+    height: 100%;
+    background:  #068a22;
+    width: 100%;
+    transition: width 0.3s linear;
+    border-radius: 10px;
+}
+
+/* ===== BOUTONS ===== */
+.boutons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-success {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #45a049;
+}
+
+.btn-warning {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #e68900;
+}
+
+.btn-danger {
+    background: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #da190b;
+}
+
+/* ===== TOURS DU CHRONOMÈTRE ===== */
+.tours {
+    margin-top: 30px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tours::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tours::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.tours::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.tour-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #f9f9f9;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tour-item span {
+    font-weight: 600;
+    color: #333;
+}
+
+.tour-item .temps-tour {
+    color: #667eea;
+    font-family: 'Courier New', monospace;
+}
+
+/* ===== ANIMATION TERMINÉE ===== */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.termine {
+    animation: pulse 0.5s ease-in-out 3;
+    color: #f44336 !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .conteneur {
+        padding: 30px 20px;
+    }
+
+    .affichage-temps {
+        font-size: 56px;
+        margin: 30px 0;
+    }
+
+    .config-temps {
+        gap: 10px;
+    }
+
+    .input-temps input {
+        width: 70px;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .affichage-temps {
+        font-size: 42px;
+        letter-spacing: 2px;
+    }
+
+    .onglet {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .config-temps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-temps input {
+        width: 100px;
+    }
+
+    .boutons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
